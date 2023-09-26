@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<head>
+  <title>TriTanks</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/logo.ico">
+</head>
+<body>
+  <!-- Get socket.io lib-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.js"></script>
+
+  <canvas id="screen"></canvas>
+  <div id="menu">
+    <h1 class="title">TriTanks</h1>
+    <h1 class="menu">Username</h1>
+    <input type="text" class="menu-input" id="username" maxlength="12">
+    <h1 class="menu">Room</h1>
+    <input type="text" class="menu-input" id="room" maxlength="12">
+    <br>
+    <br>
+    <select id="tank" class="tank-select">
+      <option>Yellow</option>
+      <option>Green</option>
+      <option>Blue</option>
+      <option>Red</option>
+      <option>Purple</option>
+      <option>Black</option>
+      <option>Pink</option>
+      <option>Orange</option>
+      <option>Desert</option>
+      <option>Ghillie</option>
+      <option>Mushroom</option>
+      <option>Teal</option><!-- TODO: This should be acheived. -->
+      <option>White</option><!-- TODO: This should also be acheived. -->
+    </select>
+    <br>
+    <br>
+    <button id="battle" onclick="battle();">Battle!</button>
+    <br>
+    <br>
+    <button id="info" onclick="info()">?</button>
+  </div>
+
+  <div id="guide">
+    <div id="play-guide" class="paragraph">
+      <h1 class="header">TriTanks</h1>
+      <h1>Current Version: v1.8</h1>
+      <h1>Last Update: September 26th, 2023</h1>
+      <h1>Released December 25th, 2022.</h1>
+      <h1 class="header">How to Play:</h1>
+      <h1>WASD to move. Click to shoot.</h1>
+      <h1>Destroy enemy tanks.</h1>
+      <h1>Each tank color has a unique style. Try them all!</h1>
+      <h1>Press space to lay mines. You can lay a mine every 7 seconds.</h1>
+      <h1>Press F to open the chat. Press G to close the chat.</h1>
+      <h1>Remember, don't step onto mines that are not yours!</h1>
+      <h1>Any time you are killed, you will stay in your grave for 4.5 seconds.</h1>
+      <h1>Got suggestions? All ideas appreciated!</h1>
+      <br>
+      <br>
+      <h1 class="header">Tanks</h1>
+      <h1>Yellow: Good all around. Recommended for beginners.</h1>
+      <h1>Green: Fires two shots plus a slightly lower recoil and delay, but suffers from decreased accuracy and health.</h1>
+      <h1>Blue: Fires a long range, high damage, high velocity, and large sized bullet at the cost of high recoil and delay.</h1>
+      <h1>Red: Quickly fires low damage, range, and velocity bullets. Decreased recoil.</h1>
+      <h1>Purple: Decreased size makes it easy to dodge attacks, but is balanced by a weaker cannon. Noticably low spread.</h1>
+      <h1>Black: Shoots a volley of 8 extremely weak bullets at once. Use at short range.</h1>
+      <h1>Teal: Increased size and health. It uses a cannon that fires slightly faster and deals slightly less damage.</h1>
+      <h1>White: Increased delay, but higher damage/velocity/size bullets.</h1>
+      <h1>Pink: Although the Pink Tank has a very long delay, it shoots 10 shots at once. Similar to the Black Tank.</h1>
+      <h1>Orange: Yet another tank that fires multiple rounds. It fires 3 tight rounds at a long range.</h1>
+      <h1>Desert: Fires a high damaging shot at a slow rate. Great for sniping.</h1>
+      <h1>Ghillie: Extremely low health, speed, and fire rate, but you are basically invisible.</h1>
+      <h1>Mushroom: Extremely high fire rate, with a extremely weak bullet.</h1>
+      <br>
+      <br>
+      <h1 class="header">Credits</h1>
+      <h1>Game Programming: Eli.</h1>
+      <h1>Concepts: Schäfer, Benjamin, and Cole.</h1>
+      <h1>Pre-Release Testing: Benjamin.</h1>
+      <h1>Sounds: Surviv.io Wiki</h1>
+      <h1>Libaries and modules: Socket.io, SAT.js, Express, Node.js.</h1>
+      <br>
+      <br>
+      <button class="buttons" onclick="document.getElementById('guide').style.visibility = 'hidden';">Close</button>
+      <br>
+      <br>
+    </div>
+  </div>
+
+  <div id="player">
+    <progress id="health" value="100" max="100">100 HP</progress>
+    <div id="chat" class="chat">
+      <div id="chat-data">
+      </div>
+    </div>
+    <button id="chat-button" onclick="sendChat()">Chat</button>
+    <input type="text" id="chat-input">
+  </div>
+
+  <script src="js/menu.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/acheive.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/bullet.js"></script>
+  <script src="js/network.js"></script>
+  <script src="js/tank.js"></script>
+</body>
+</html>
